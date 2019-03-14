@@ -56,12 +56,18 @@ function html() {
         .pipe(browserSync.stream())
 }
 
+function bootstrapjquery() {
+    return gulp
+        .src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'])
+        .pipe(gulp.dest(js_dest))
+}
+
 function js() {
     return gulp
         .src(js_source)
         .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(concat('app-bundle.js'))
+        // .pipe(concat('app-bundle.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(js_dest))
@@ -122,6 +128,7 @@ function watchFiles() {
     gulp.watch(js_source, js);
     gulp.watch(assets_source, assets);
     gulp.watch(fonts_source, fonts);
+    gulp.watch(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], bootstrapjquery);
 }
 
 
@@ -133,9 +140,10 @@ gulp.task('html', html);
 gulp.task('js', js);
 gulp.task('assets', assets);
 gulp.task('fonts', fonts);
+gulp.task('bootstrapjquery', bootstrapjquery);
 
 // Gulp Default Task
-gulp.task('default', gulp.series('clean', gulp.parallel('css', 'html', 'js', 'assets', 'fonts')));
+gulp.task('default', gulp.series('clean', gulp.parallel('css', 'html', gulp.series('bootstrapjquery', 'js'), 'assets', 'fonts')));
 
 // Watch for File Changes
 gulp.task('watch', gulp.series('default', gulp.parallel(watchFiles, browser_sync)));
