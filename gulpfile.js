@@ -1,29 +1,29 @@
-const   gulp          = require('gulp'),
-        del           = require('del'),
-        Fiber         = require('fibers'),
-        cssnano       = require('cssnano'),
-        sass          = require('gulp-sass'),
-        concat        = require('gulp-concat'),
-        uglify        = require('gulp-uglify'),
-        postcss       = require('gulp-postcss'),
-        changed       = require('gulp-changed'),
-        sourcemaps    = require('gulp-sourcemaps'),
-        autoprefixer  = require('autoprefixer'),
-        imagemin      = require('gulp-imagemin'),
-        babel         = require("gulp-babel"),
-        browserSync   = require('browser-sync').create();
+const gulp = require('gulp'),
+    del = require('del'),
+    Fiber = require('fibers'),
+    cssnano = require('cssnano'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    postcss = require('gulp-postcss'),
+    changed = require('gulp-changed'),
+    sourcemaps = require('gulp-sourcemaps'),
+    autoprefixer = require('autoprefixer'),
+    imagemin = require('gulp-imagemin'),
+    babel = require("gulp-babel"),
+    browserSync = require('browser-sync').create();
 
 // File Path
-const   style_source  = 'src/sass/**/*.scss',
-        html_source   = 'src/*.html',
-        js_source     = 'src/js/*.js',
-        assets_source = 'src/assets/**/*',
-        fonts_source  = 'src/fonts/**/*',
-        style_dest    = 'dist/css',
-        html_dest     = 'dist',
-        js_dest       = 'dist/js',
-        assets_dest   = 'dist/assets',
-        fonts_dest    = 'dist/fonts';
+const style_source = 'src/sass/**/*.scss',
+    html_source = 'src/*.html',
+    js_source = 'src/js/*.js',
+    assets_source = 'src/assets/**/*',
+    fonts_source = 'src/fonts/**/*',
+    style_dest = 'dist/css',
+    html_dest = 'dist',
+    js_dest = 'dist/js',
+    assets_dest = 'dist/assets',
+    fonts_dest = 'dist/fonts';
 
 // Using Dart Sass
 sass.compiler = require('sass');
@@ -56,18 +56,27 @@ function html() {
         .pipe(browserSync.stream())
 }
 
-function bootstrapjquery() {
+function packages() {
     return gulp
-        .src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'])
-        .pipe(gulp.dest(js_dest))
+        .src([
+            'node_modules/jquery/dist/jquery.js',
+            'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+            'node_modules/swiper/dist/js/swiper.js'
+        ])
+        .pipe(gulp.dest('src/js'))
 }
 
 function js() {
     return gulp
-        .src(js_source)
+        .src([
+            'src/js/jquery.js',
+            'src/js/bootstrap.bundle.js',
+            'src/js/swiper.js',
+            'src/js/app.js'
+        ])
         .pipe(sourcemaps.init())
         .pipe(babel())
-        // .pipe(concat('app-bundle.js'))
+        .pipe(concat('app-bundle.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(js_dest))
@@ -128,7 +137,10 @@ function watchFiles() {
     gulp.watch(js_source, js);
     gulp.watch(assets_source, assets);
     gulp.watch(fonts_source, fonts);
-    gulp.watch(['node_modules/jquery/dist/jquery.min.js', 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], bootstrapjquery);
+    gulp.watch(['src/jquery.js',
+    'src/bootstrap.bundle.js',
+    'src/swiper.js',
+    'src/app.js'], packages);
 }
 
 
@@ -140,10 +152,10 @@ gulp.task('html', html);
 gulp.task('js', js);
 gulp.task('assets', assets);
 gulp.task('fonts', fonts);
-gulp.task('bootstrapjquery', bootstrapjquery);
+gulp.task('packages', packages);
 
 // Gulp Default Task
-gulp.task('default', gulp.series('clean', gulp.parallel('css', 'html', gulp.series('bootstrapjquery', 'js'), 'assets', 'fonts')));
+gulp.task('default', gulp.series('clean', gulp.parallel('css', 'html', gulp.series('packages', 'js'), 'assets', 'fonts')));
 
 // Watch for File Changes
 gulp.task('watch', gulp.series('default', gulp.parallel(watchFiles, browser_sync)));

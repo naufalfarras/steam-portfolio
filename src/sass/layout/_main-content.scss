@@ -1,0 +1,20 @@
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 592px));
+    justify-content: space-between;
+    grid-column-gap: 2rem;
+    @include respond-below(md) {
+        grid-template-columns: 100%;
+    }
+    
+    .card-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    hr {
+        height: 2px;
+        margin: 0;
+        background: $black;
+    }
+}
