@@ -61,7 +61,8 @@ function packages() {
         .src([
             'node_modules/jquery/dist/jquery.js',
             'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-            'node_modules/swiper/dist/js/swiper.js'
+            'node_modules/swiper/dist/js/swiper.js',
+            'node_modules/@fortawesome/fontawesome-free/js/all.js'
         ])
         .pipe(gulp.dest('src/js'))
 }
@@ -72,6 +73,7 @@ function js() {
             'src/js/jquery.js',
             'src/js/bootstrap.bundle.js',
             'src/js/swiper.js',
+            'src/js/all.js',
             'src/js/app.js'
         ])
         .pipe(sourcemaps.init())
