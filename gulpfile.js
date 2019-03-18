@@ -32,6 +32,12 @@ function clean() {
     return del(['dist/**', '!dist']);
 }
 
+function csspackages() {
+    return gulp
+        .src('node_modules/swiper/dist/css/swiper.min.css')
+        .pipe(gulp.dest('dist/css'))
+}
+
 function css() {
     const plugins = [
         autoprefixer(),
@@ -56,7 +62,7 @@ function html() {
         .pipe(browserSync.stream())
 }
 
-function packages() {
+function jspackages() {
     return gulp
         .src([
             'node_modules/jquery/dist/jquery.js',
@@ -72,12 +78,12 @@ function js() {
         .src([
             'src/js/jquery.js',
             'src/js/bootstrap.bundle.js',
-            'src/js/swiper.js',
             'src/js/all.js',
+            'src/js/swiper.js',
             'src/js/app.js'
         ])
         .pipe(sourcemaps.init())
-        .pipe(babel())
+        // .pipe(babel())
         .pipe(concat('app-bundle.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
@@ -139,12 +145,7 @@ function watchFiles() {
     gulp.watch(js_source, js);
     gulp.watch(assets_source, assets);
     gulp.watch(fonts_source, fonts);
-    gulp.watch(['src/jquery.js',
-    'src/bootstrap.bundle.js',
-    'src/swiper.js',
-    'src/app.js'], packages);
 }
-
 
 // Individual Task
 gulp.task('browser-sync', browser_sync);
@@ -154,10 +155,11 @@ gulp.task('html', html);
 gulp.task('js', js);
 gulp.task('assets', assets);
 gulp.task('fonts', fonts);
-gulp.task('packages', packages);
+gulp.task('csspackages', csspackages);
+gulp.task('jspackages', jspackages);
 
 // Gulp Default Task
-gulp.task('default', gulp.series('clean', gulp.parallel('css', 'html', gulp.series('packages', 'js'), 'assets', 'fonts')));
+gulp.task('default', gulp.series('clean', gulp.parallel('csspackages', 'css', 'html', gulp.series('jspackages', 'js'), 'assets', 'fonts')));
 
 // Watch for File Changes
 gulp.task('watch', gulp.series('default', gulp.parallel(watchFiles, browser_sync)));

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Steam Redesign</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 
@@ -23,13 +24,94 @@
         <div class="main-card">
             <h1 class="card-title">Trending This Month</h1>
             <hr>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://picsum.photos/4579/3271?image=1084">
+                        <span class="discount">-60%</span>
+                        <div class="section-1">
+                            <span class="remaining-time">42:02:34</span>
+                            <a href="#">
+                                <h2 class="title">The Witcher 3 : Wild Hunt - Game of the Year</h2>
+                            </a>
+                        </div>
+                        <div class="section-2">
+                            <div class="price">
+                                <span class="old">Rp 449.000</span>
+                                <span class="new">Rp 179.600</span>
+                            </div>
+                            <div class="reviews">
+                                <span class="positive">12.645 <i class="icon fas fa-thumbs-up"></i></span>
+                                <span class="negative">345 <i class="icon fas fa-thumbs-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="section-3">
+                            <div class="tags">
+                                <a href="#">Open World</a>,
+                                <a href="#">Adventure</a>,
+                                <a href="#">TPS</a>
+                            </div>
+                            <div class="platform">
+                                <a href="#"><i class="icon fab fa-steam"></i></a>
+                                <a href="#"><i class="icon fab fa-windows"></i></a>
+                                <a href="#"><i class="icon fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://picsum.photos/4579/3271?image=234">
+                        <span class="discount">-40%</span>
+                        <span class="remaining-time">32:22:24</span>
+                        <div class="section-1">
+                            <a href="#">
+                                <h2 class="title">Resident Evil 2</h2>
+                            </a>
+                        </div>
+                        <div class="section-2">
+                            <div class="price">
+                                <span class="old">Rp 549.000</span>
+                                <span class="new">Rp 329.400</span>
+                            </div>
+                            <div class="reviews">
+                                <span class="positive">12.754 <i class="icon fas fa-thumbs-up"></i></span>
+                                <span class="negative">234 <i class="icon fas fa-thumbs-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="section-3">
+                            <div class="tags">
+                                <a href="#">Horror</a>,
+                                <a href="#">FPS</a>,
+                                <a href="#">Survival</a>
+                            </div>
+                            <div class="platform">
+                                <a href="#"><i class="icon fab fa-steam"></i></a>
+                                <a href="#"><i class="icon fab fa-windows"></i></a>
+                                <a href="#"><i class="icon fab fa-apple"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
         </div>
         <div class="main-card">
             <h1 class="card-title">Special Price</h1>
             <hr>
+
         </div>
     </div>
-    
+
+
+
 
     <script src="js/app-bundle.js"></script>
 </body>
