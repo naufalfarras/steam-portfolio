@@ -3,7 +3,8 @@
     width: 100%;
     max-height: 520px;
     height: auto;
-
+    box-shadow: 5px 5px 40px rgba($black, 0.4);
+    border-radius: 10px;
     img {
         display: block;
         width: 100%;
@@ -16,6 +17,10 @@
     .discount {
         top: 10px;
         font-size: 20px;
+
+        @include respond-below(sm) {
+            top: 6px;
+        }
     }
 
     .discount,
@@ -23,30 +28,53 @@
         position: absolute;
         left: 10px;
         display: inline-block;
-        background: #888;
+        background: $green;
+        color: $white;
         padding: 6px 10px;
         border-radius: 5px;
         opacity: 0.8;
         font-family: "Titillium Web";
         font-weight: bold;
+
+        @include respond-below(sm) {
+            font-size: 14px;
+            padding: 4px 8px;
+            left: 6px;
+        }
     }
 
     .section-1 {
-        background: #888;
+        background: linear-gradient(to left, $primary, $secondary);
         position: relative;
+
+        a {
+            text-decoration: none;
+        }
+
         .remaining-time {
             position: absolute;
             top: -45px;
-            font-size: 16px;
+            font-size: 14px;
+
+            @include respond-below(xs) {
+                top: -34px;
+                font-size: 12px;
+            }
         }
 
         .title {
             font-family: "Niramit";
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 18px;
+            font-size: 17px;
             margin: 0;
             padding: 15px 0;
+            color: $grey;
+
+            @include respond-below(xs) {
+                font-size: 14px;
+                padding: 10px 0;
+            }
         }
     }
 
@@ -55,53 +83,77 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background: #999;
+        background: $grey;
 
         .price {
             text-transform: uppercase;
             font-size: 14px;
+
+            @include respond-below(sm) {
+                font-size: 11px;
+            }
 
             .old {
                 background: #666;
                 border-top-left-radius: 5px;
                 border-bottom-left-radius: 5px;
                 text-decoration: line-through;
+                background: $primary;
+                color: $grey;
             }
 
             .new {
                 background: #555;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
+                background: $green;
+                color: $white;
             }
 
             .old,
             .new {
                 padding: 4px 10px;
+                font-family: 'Titillium Web';
+
+                @include respond-below(sm) {
+                    padding: 3px 7px;
+                }
             }
         }
 
         .reviews {
             font-size: 13px;
 
+            @include respond-below(sm) {
+                font-size: 11px;
+            }
+
             .positive {
-                background: #666;
                 border-top-left-radius: 5px;
                 border-bottom-left-radius: 5px;
+                background: $blue;
+                color: $grey;
 
-                .icon {
-                    bottom: 1px;
-                }
+                // .icon {
+                //     bottom: 1px;
+                // }
             }
 
             .negative {
                 background: #555;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
+                background: $red;
+                color: $grey;
             }
 
             .positive,
             .negative {
                 padding: 4px 7px;
+
+                @include respond-below(sm) {
+                    padding: 3px 7px;
+                }
             }
 
             .icon {
@@ -117,11 +169,14 @@
             font-family: "Titillium Web";
             font-weight: bold;
             margin: 10px 0;
+            @include respond-below(xs) {
+                margin: 8px 0;
+            }
         }
     }
 
     .section-3 {
-        background: #777;
+        background: linear-gradient(to right, $primary, $secondary);
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
         display: flex;
@@ -130,10 +185,20 @@
 
         .tags {
             font-family: "Niramit";
-            font-weight: bold;
+            font-weight: medium;
             text-transform: uppercase;
             font-size: 12px;
-            padding: 15px 0;
+            padding: 12px 0;
+            color: $grey;
+            a {
+               color: $grey;
+               text-decoration: underline;
+            }
+
+            @include respond-below(sm) {
+                font-size: 10px;
+                padding: 10px 0;
+            }
         }
 
         .platform {
@@ -141,6 +206,14 @@
             grid-auto-flow: column;
             grid-gap: 12px;
             font-size: 17px;
+            a {
+                color: $grey; 
+             }
+
+            @include respond-below(sm) {
+                font-size: 14px;
+                grid-gap: 10px;
+            }
         }
     }
 
@@ -148,6 +221,10 @@
     .section-2,
     .section-3 {
         padding: 0 16px;
+
+        @include respond-below(xs) {
+            padding: 0 10px;
+        }
     }
 }
 
@@ -175,31 +252,32 @@
     width: auto;
     height: auto;
     padding: 20px 10px;
-    opacity: 0.8;
+    opacity: 0.7;
+
     @include respond-below(xs) {
-        top: 26%;
-        padding: 16px 8px;
-        font-size: 20px;
+        padding: 14px 6px;
+        font-size: 18px;
     }
 }
 
-.swiper-pagination {
-    position: relative;
-}
+// .swiper-pagination {
+//     position: absolute;
+//     bottom: 200px;
+// }
 
-.swiper-container-horizontal>.swiper-pagination-bullets {
-    bottom: 0;
-    margin-top: 10px;
-}
+// .swiper-container-horizontal>.swiper-pagination-bullets {
+//     bottom: 0;
+//     margin-top: 10px;
+// }
 
-.swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-}
+// .swiper-pagination-bullet {
+//     width: 12px;
+//     height: 12px;
+// }
 
-.swiper-pagination-bullet-active {
-    opacity: 1;
-    background: red;
-    transform: scale(1.3);
-    transition: all 300ms ease;
-}
+// .swiper-pagination-bullet-active {
+//     opacity: 1;
+//     background: red;
+//     transform: scale(1.3);
+//     transition: all 300ms ease;
+// }

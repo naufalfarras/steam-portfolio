@@ -1,9 +1,10 @@
 var mySwiper = new Swiper(".swiper-container", {
     // simulateTouch: false,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-    },
+    autoHeight: true,
+    // pagination: {
+    //     el: ".swiper-pagination",
+    //     clickable: true
+    // },
 
     // Navigation arrows
     navigation: {
