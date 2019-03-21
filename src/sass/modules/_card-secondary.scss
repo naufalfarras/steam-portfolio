@@ -1,0 +1,183 @@
+.secondary-card {
+    flex-basis: 30%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 40px rgba($black, 0.4);
+
+    @include respond-below(lg) {
+        flex-basis: 46%;
+        margin-bottom: 40px;
+    }
+
+    @include respond-below(md) {
+        flex-basis: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .section-1 {
+        background: linear-gradient(to left, $primary, $secondary);
+        position: relative;
+
+        a {
+            text-decoration: none;
+        }
+
+        // .remaining-time {
+        //     position: absolute;
+        //     top: -45px;
+        //     font-size: 14px;
+
+        //     @include respond-below(xs) {
+        //         top: -34px;
+        //         font-size: 12px;
+        //     }
+        // }
+
+        .title {
+            font-family: "Niramit";
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin: 0;
+            padding: 10px 0;
+            color: $grey;
+        }
+    }
+
+    .section-2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: $grey;
+
+        .price {
+            text-transform: uppercase;
+            font-size: 13px;
+
+            @include respond-below(sm) {
+                font-size: 11px;
+            }
+
+            .old {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                text-decoration: line-through;
+                background: $primary;
+                color: $grey;
+            }
+
+            .new {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background: $green;
+                color: $white;
+            }
+
+            .current {
+                background: $green;
+                color: $white;
+                border-radius: 5px;
+            }
+
+            .old,
+            .new,
+            .current {
+                padding: 2px 8px;
+                font-family: 'Titillium Web';
+            }
+        }
+
+        .reviews {
+            font-size: 13px;
+
+            @include respond-below(sm) {
+                font-size: 11px;
+            }
+
+            .positive {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                background: $blue;
+                color: $grey;
+            }
+
+            .negative {
+                background: #555;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background: $red;
+                color: $grey;
+            }
+
+            .positive,
+            .negative {
+                padding: 2px 8px;
+            }
+
+            .icon {
+                position: relative;
+                margin-left: 4px;
+                font-size: 11px;
+            }
+        }
+
+        .price,
+        .reviews {
+            display: flex;
+            font-family: "Titillium Web";
+            font-weight: bold;
+            margin: 6px 0;
+        }
+    }
+
+    .section-3 {
+        background: linear-gradient(to right, $primary, $secondary);
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .tags {
+            font-family: "Niramit";
+            font-weight: medium;
+            text-transform: uppercase;
+            font-size: 10px;
+            padding: 10px 0;
+            color: $grey;
+
+            a {
+                color: $grey;
+                text-decoration: underline;
+            }
+        }
+
+        .platform {
+            display: grid;
+            grid-auto-flow: column;
+            grid-gap: 10px;
+            font-size: 14px;
+
+            a {
+                color: $grey;
+            }
+        }
+    }
+
+    .section-1,
+    .section-2,
+    .section-3 {
+        padding: 0 14px;
+
+        @include respond-below(xs) {
+            padding: 0 10px;
+        }
+    }
+}

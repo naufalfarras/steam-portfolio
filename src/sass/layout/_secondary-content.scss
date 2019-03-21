@@ -1,0 +1,11 @@
+.secondary-content {
+    .secondary-cards {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include respond-between(md, lg) {
+            justify-content: space-around;
+        }
+    }
+}
