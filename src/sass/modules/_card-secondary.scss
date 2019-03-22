@@ -141,6 +141,14 @@
                 color: $grey;
             }
 
+            .no-review {
+                text-transform: uppercase;
+                font-family: 'Niramit';
+                font-weight: bold;
+                font-size: 11px;
+                color: $primary;
+            }
+
             .positive,
             .negative {
                 padding: 2px 8px;
