@@ -1,4 +1,5 @@
 .secondary-card {
+    position: relative;
     flex-basis: 32%;
     border-radius: 10px;
     box-shadow: 5px 5px 40px rgba($black, 0.4);
@@ -23,6 +24,21 @@
         height: auto;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
+    }
+
+    .availability {
+        z-index: 999;
+        position: absolute;
+        top: 0;
+        background: rgba($grey, 0.8);
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+        font-family: 'Niramit';
+        font-weight: bold;
+        font-size: 12px;
+        padding: 5px 0;
     }
 
     .discount,
