@@ -3,64 +3,61 @@
     width: 100%;
     box-shadow: 5px 5px 40px rgba($black, 0.4);
     border-radius: 10px;
-    @include respond-below(md) {
-        max-width: 100%;
-        width: 100%;
+
+    a {
+        text-decoration: none;
     }
+
     img {
         display: block;
         width: 100%;
         height: auto;
-        // max-height: 333px;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
-    }
-
-    .discount {
-        top: 10px;
-        font-size: 20px;
-
-        @include respond-below(sm) {
-            top: 6px;
-        }
     }
 
     .discount,
     .remaining-time {
         position: absolute;
-        left: 10px;
+        left: 8px;
         display: inline-block;
         background: $green;
         color: $white;
-        padding: 6px 10px;
+        padding: 4px 8px;
         border-radius: 5px;
         opacity: 0.8;
         font-family: "Titillium Web";
         font-weight: bold;
 
         @include respond-below(sm) {
-            font-size: 14px;
-            padding: 4px 8px;
-            left: 6px;
+            padding: 3px 6px;
+            left: 5px;
         }
     }
+
+    .discount {
+        top: 8px;
+        font-size: 18px;
+
+        @include respond-below(sm) {
+            top: 5px;
+            font-size: 16px;
+        }
+    }
+
 
     .section-1 {
         background: linear-gradient(to left, $primary, $secondary);
         position: relative;
 
-        a {
-            text-decoration: none;
-        }
-
         .remaining-time {
             position: absolute;
-            top: -45px;
+            top: -37px;
             font-size: 14px;
 
-            @include respond-below(xs) {
-                top: -34px;
-                font-size: 12px;
+            @include respond-below(sm) {
+                top: -31px;
+                font-size: 13px;
             }
         }
 
@@ -68,12 +65,17 @@
             font-family: "Niramit";
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 17px;
+            font-size: 16px;
             margin: 0;
-            padding: 15px 0;
+            padding: 16px 0;
             color: $grey;
 
-            @include respond-below(xs) {
+            @include respond-below(lg) {
+                font-size: 15px;
+                padding: 13px 0;
+            }
+
+            @include respond-below(sm) {
                 font-size: 14px;
                 padding: 10px 0;
             }
@@ -171,7 +173,8 @@
             font-family: "Titillium Web";
             font-weight: bold;
             margin: 10px 0;
-            @include respond-below(xs) {
+
+            @include respond-below(lg) {
                 margin: 8px 0;
             }
         }
@@ -189,16 +192,25 @@
             font-family: "Niramit";
             font-weight: medium;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11px;
             padding: 12px 0;
             color: $grey;
+
             a {
-               color: $grey;
-               text-decoration: underline;
+                color: $grey;
+                text-decoration: none;
+
+                @include respond-below(sm) {
+                    text-decoration: underline;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             @include respond-below(sm) {
-                font-size: 10px;
+                font-size: 9.5px;
                 padding: 10px 0;
             }
         }
@@ -208,9 +220,14 @@
             grid-auto-flow: column;
             grid-gap: 12px;
             font-size: 17px;
+
             a {
-                color: $grey; 
-             }
+                color: $grey;
+                transition: color 0.2s ease;
+                &:hover {
+                    color: $primary;
+                }
+            }
 
             @include respond-below(sm) {
                 font-size: 14px;
@@ -224,7 +241,7 @@
     .section-3 {
         padding: 0 16px;
 
-        @include respond-below(xs) {
+        @include respond-below(sm) {
             padding: 0 10px;
         }
     }
@@ -244,19 +261,20 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-    top: 30%;
+    top: 32%;
     background-image: none;
     background: #999;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 24px;
     width: auto;
     height: auto;
-    padding: 20px 10px;
+    padding: 18px 8px;
     opacity: 0.7;
 
-    @include respond-below(xs) {
+    @include respond-below(sm) {
+        top: 34%;
         padding: 14px 6px;
         font-size: 18px;
     }

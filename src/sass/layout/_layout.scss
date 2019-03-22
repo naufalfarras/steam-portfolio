@@ -5,14 +5,26 @@
 .section-title {
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Niramit';
     font-weight: bold;
     text-transform: uppercase;
     color: $grey;
 
     @include respond-below(sm) {
-        font-size: 16px;
+        font-size: 15px;
+    }
+}
+
+.see-more {
+    font-family: 'Niramit';
+    margin: 0;
+    margin-bottom: 10px;
+    color: $grey;
+    font-size: 16px;
+    text-decoration: underline;
+    @include respond-below(sm) {
+        font-size: 15px;
     }
 }
 
@@ -20,6 +32,9 @@ hr {
     padding: 1px 0;
     margin-top: 0;
     margin-bottom: 30px;
-    border-radius: 999px;
+    // border-radius: 999px;
     background: $grey;
+    @include respond-below(sm) {
+        margin-bottom: 25px;
+    }
 }

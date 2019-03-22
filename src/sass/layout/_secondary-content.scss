@@ -1,11 +1,28 @@
-.secondary-content {
-    .secondary-cards {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+// .secondary-content {
+// }
 
-        @include respond-between(md, lg) {
-            justify-content: space-around;
-        }
+.top-sellers,
+.new-releases,
+.upcoming {
+    margin-bottom: 60px;
+    @include respond-below(md) {
+        margin-bottom: 40px;
+    }
+    @include respond-below(sm) {
+        margin-bottom: 25px;
+    }
+}
+
+.secondary-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include respond-between(md, lg) {
+        justify-content: space-around;
+    }
+
+    @include respond-below(md) {
+        justify-content: center;
     }
 }

@@ -1,6 +1,6 @@
 var mySwiper = new Swiper(".swiper-container", {
     // simulateTouch: false,
-    autoHeight: true,
+    // autoHeight: true,
     // pagination: {
     //     el: ".swiper-pagination",
     //     clickable: true

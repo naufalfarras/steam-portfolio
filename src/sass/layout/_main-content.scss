@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 592px));
     justify-content: space-between;
-    grid-gap: 2rem;
+    grid-gap: 3rem;
     margin-bottom: 80px;
     @include respond-below(md) {
         grid-template-columns: 100%;
