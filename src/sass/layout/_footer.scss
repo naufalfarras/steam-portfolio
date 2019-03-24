@@ -1,5 +1,4 @@
 footer {
-
     background: linear-gradient(to left, $primary, $secondary);
     padding: 45px 0;
     color: $grey;
@@ -15,17 +14,34 @@ footer {
     .container {
         display: flex;
 
+        @include respond-below(sm) {
+            flex-direction: column;
+            text-align: center;
+        }
+
         .column-1 {
-            flex-basis: 2;
+            flex: 2;
             border-right: 2px solid $primary;
             font-size: 12px;
             padding-right: 30px;
+
+            @include respond-below(sm) {
+                border: none;
+                padding: 0;
+                text-align: center;
+                margin-bottom: 30px;
+            }
 
             .valve-logo {
                 display: block;
                 height: 35px;
                 width: auto;
                 margin-bottom: 20px;
+
+                @include respond-below(sm) {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
             }
 
             span {
@@ -38,29 +54,90 @@ footer {
         }
 
         .column-2 {
-            flex-basis: 1;
+            flex: 1;
             font-size: 14px;
             border-right: 2px solid $primary;
+            flex-direction: column;
 
-            ul {
-                padding: 0 40px;
-                li {
-                    margin-bottom: 15px;
+            @include respond-below(sm) {
+                border: none;
+                flex-direction: row;
+                margin-bottom: 30px;
+            }
 
+            a {
+                padding: 0 30px;
+                margin-bottom: 15px;
+                transition: all 0.2s ease;
+                text-decoration: none;
+                @include respond-below(sm) {
+                    margin-bottom: 0;
+                    padding-left: 0;
+                    padding-right: 20px;
                     &:last-of-type {
-                        margin: 0;
+                        padding: 0;
                     }
+
+                }
+                &:hover {
+                    color: $grey;
+                }
+
+                &:last-of-type {
+                    margin: 0;
                 }
             }
         }
 
         .column-3 {
-            padding: 0 40px;
+            padding: 0 30px;
+
             span {
                 margin-bottom: 15px;
             }
+
             a {
                 font-size: 20px;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    color: $grey;
+                }
+            }
+
+            .social-media {
+                display: flex;
+                flex-direction: row;
+
+                a {
+                    padding: 0 8px;
+                }
+            }
+        }
+
+        .column-4 {
+            flex: 3;
+
+            @include respond-below(lg) {
+                display: none;
+            }
+
+            img {
+                height: 40px;
+                margin-bottom: 20px;
+            }
+
+            a {
+                background: $green;
+                border-radius: 1000px;
+                padding: 6px 12px;
+                font-size: 14px;
+                font-family: 'Niramit';
+                font-weight: medium;
+
+                .download-icon {
+                    margin-right: 6px;
+                }
             }
         }
     }
