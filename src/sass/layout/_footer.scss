@@ -1,0 +1,68 @@
+footer {
+
+    background: linear-gradient(to left, $primary, $secondary);
+    padding: 45px 0;
+    color: $grey;
+    font-family: 'Niramit';
+    font-weight: medium;
+
+    a {
+        color: $white;
+        font-family: 'Niramit';
+        font-weight: medium;
+    }
+
+    .container {
+        display: flex;
+
+        .column-1 {
+            flex-basis: 2;
+            border-right: 2px solid $primary;
+            font-size: 12px;
+            padding-right: 30px;
+
+            .valve-logo {
+                display: block;
+                height: 35px;
+                width: auto;
+                margin-bottom: 20px;
+            }
+
+            span {
+                display: block;
+
+                &:first-of-type {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .column-2 {
+            flex-basis: 1;
+            font-size: 14px;
+            border-right: 2px solid $primary;
+
+            ul {
+                padding: 0 40px;
+                li {
+                    margin-bottom: 15px;
+
+                    &:last-of-type {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .column-3 {
+            padding: 0 40px;
+            span {
+                margin-bottom: 15px;
+            }
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+
+}
