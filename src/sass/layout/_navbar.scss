@@ -1,0 +1,159 @@
+.overlay {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: calc(100vh - 50px);
+    background: $black;
+    transition: opacity 0.3s ease;
+    visibility: hidden;
+    opacity: 0;
+
+    &.is-open {
+        z-index: 999;
+        visibility: visible;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.primary-nav {
+    background: $grey;
+    height: 50px;
+    font-size: 14px;
+    font-family: 'Niramit';
+    font-weight: bold;
+    top: 0;
+    z-index: 1200;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    .mobile-menu {
+        display: none;
+
+        @include respond-below(md) {
+            display: block;
+            font-size: 25px;
+            color: $primary;
+        }
+    }
+
+    .primary-links {
+        transition: all 0.2s ease;
+
+        @include respond-below(md) {
+            position: fixed;
+            background: $grey;
+            box-shadow: 5px 5px 30px rgba($black, 0.3);
+            height: calc(100vh - 50px);
+            margin-top: 50px;
+            width: 200px;
+            top: 0;
+            left: 0;
+            transform: translateX(-200px);
+            display: flex;
+            flex-direction: column;
+            z-index: 1200;
+
+            &.is-open {
+                background: $grey;
+                transform: translateX(0);
+
+            }
+        }
+
+        a {
+            text-transform: uppercase;
+            padding-right: 18px;
+
+            @include respond-below(md) {
+                padding: 15px;
+                border-bottom: 1px solid rgba($black, 0.3);
+            }
+
+            &:last-of-type {
+                padding: 0;
+
+                @include respond-below(md) {
+                    padding: 15px;
+                }
+            }
+        }
+    }
+
+
+    .steam-logo-desktop {
+        height: 30px;
+        width: auto;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include respond-below(md) {
+            display: none;
+        }
+    }
+
+    .steam-logo-mobile {
+        display: none;
+
+        @include respond-below(md) {
+            display: block;
+            height: 30px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .secondary-links {
+        display: flex;
+        align-items: center;
+
+        .download {
+            background: $green;
+            padding: 5px 14px;
+            margin-right: 15px;
+            border-radius: 1000px;
+            color: $white;
+            font-weight: 400;
+
+            @include respond-below(lg) {
+                display: none;
+            }
+
+            &-icon {
+                margin-right: 5px;
+            }
+        }
+
+        .account {
+            display: flex;
+            flex-direction: row;
+
+            a {
+                color: $primary;
+                padding: 0 10px;
+
+                &:first-of-type {
+                    border-right: 1px solid $primary;
+                }
+
+                &:last-of-type {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.secondary-nav {
+    top: 50px;
+    background: $primary;
+    height: 40px;
+    z-index: 10;
+}
