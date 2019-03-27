@@ -20,8 +20,8 @@
             font-family: 'Niramit';
             font-style: italic;
         }
-        @include respond-below(sm) {
-            height: 35px;
+        @include respond-below(md) {
+            height: 40px;
             padding: 0 15px;
             font-size: 12px;
         }
