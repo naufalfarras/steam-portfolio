@@ -152,8 +152,79 @@
 }
 
 .secondary-nav {
-    top: 50px;
     background: $primary;
-    height: 40px;
+    top: 50px;
     z-index: 10;
+
+    .container {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    li {
+        position: relative;
+        height: 100%;
+        text-align: center;
+        cursor: pointer;
+        @include respond-below(sm) {
+            flex: 1;
+        }
+
+        &:hover {
+            >span {
+                background: $secondary;
+
+                ~.menu-item {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        >span {
+            color: $grey;
+            display: block;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-family: 'Niramit';
+            font-weight: 400;
+            @include respond-below(sm) {
+                padding: 12px 0;
+                font-size: 14px;
+            }
+            .drop-icon {
+                margin-left: 5px;
+            }
+        }
+
+        .menu-item {
+            background: $secondary;
+            position: absolute;
+            display: none;
+            width: 150px;
+            max-height: 400px;
+            overflow: auto;
+            box-shadow: 5px 5px 40px rgba($black, 0.4);
+            font-family: 'Niramit';
+            font-weight: 400;
+            border-radius: 0 0 5px 5px;
+            @include respond-below(sm) {
+                width: 100%;
+                font-size: 13px;
+            }
+
+            a {
+                text-decoration: none;
+                color: $grey;
+                text-align: left;
+                padding: 10px 15px;
+                &:hover {
+                    background: linear-gradient(to right, $primary, $secondary);
+                }
+            }
+        }
+    }
 }
