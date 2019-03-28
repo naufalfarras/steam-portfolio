@@ -169,6 +169,7 @@
         height: 100%;
         text-align: center;
         cursor: pointer;
+
         @include respond-below(sm) {
             flex: 1;
         }
@@ -191,10 +192,17 @@
             font-size: 15px;
             font-family: 'Niramit';
             font-weight: 400;
+
             @include respond-below(sm) {
                 padding: 12px 0;
                 font-size: 14px;
             }
+
+            &:hover,
+            &.active {
+                background: $secondary;
+            }
+
             .drop-icon {
                 margin-left: 5px;
             }
@@ -211,6 +219,12 @@
             font-family: 'Niramit';
             font-weight: 400;
             border-radius: 0 0 5px 5px;
+
+            &.active {
+                display: flex;
+                flex-direction: column;
+            }
+
             @include respond-below(sm) {
                 width: 100%;
                 font-size: 13px;
@@ -221,6 +235,7 @@
                 color: $grey;
                 text-align: left;
                 padding: 10px 15px;
+
                 &:hover {
                     background: linear-gradient(to right, $primary, $secondary);
                 }

@@ -9,13 +9,17 @@ var mySwiper = new Swiper(".swiper-container", {
 var mobileMenu = document.querySelector('.mobile-menu');
 var sidenav = document.querySelector('.primary-links');
 var overlay = document.querySelector('.overlay');
+var secondaryMenu = document.querySelectorAll('.secondary-nav ul li span');
 
-
-// window.addEventListener('click', function (e) {
-//     // console.log(e.target.parentNode);
-//     if (sidenav.classList.contains('is-open') && e.target != sidenav && e.target.parentNode != sidenav) {
-//         sidenav.classList.toggle('is-open');
-//     }
+// secondaryMenu.forEach(function (menu) {
+//     menu.addEventListener('click', function (e) {
+//         secondaryMenu.forEach(function (menu) {
+//             menu.classList.remove('active');
+//             menu.nextElementSibling.classList.remove('active');
+//         });
+//         e.target.classList.toggle('active');
+//         e.target.nextElementSibling.classList.toggle('active');
+//     });
 // });
 
 mobileMenu.addEventListener('click', function () {
@@ -23,7 +27,7 @@ mobileMenu.addEventListener('click', function () {
     overlay.classList.toggle('is-open');
 });
 
-overlay.addEventListener('click', function() {
+overlay.addEventListener('click', function () {
     sidenav.classList.remove('is-open');
     overlay.classList.remove('is-open');
 })
