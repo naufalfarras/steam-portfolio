@@ -16,6 +16,10 @@
     }
 }
 
+nav {
+    box-shadow: $small-shadow;
+}
+
 .primary-nav {
     background: $grey;
     height: 50px;
@@ -30,6 +34,32 @@
         justify-content: space-between;
         align-items: center;
         height: 100%;
+        position: relative;
+
+        .steam-logo {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &-desktop {
+                height: 30px;
+                width: auto;
+
+                @include respond-below(md) {
+                    display: none;
+                }
+            }
+
+            &-mobile {
+                display: none;
+
+                @include respond-below(md) {
+                    display: inline-block;
+                    height: 30px;
+                }
+            }
+        }
     }
 
     .mobile-menu {
@@ -69,6 +99,12 @@
         a {
             text-transform: uppercase;
             padding-right: 18px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $secondary;
+            }
 
             @include respond-below(md) {
                 padding: 15px;
@@ -85,31 +121,6 @@
         }
     }
 
-
-    .steam-logo-desktop {
-        height: 30px;
-        width: auto;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-
-        @include respond-below(md) {
-            display: none;
-        }
-    }
-
-    .steam-logo-mobile {
-        display: none;
-
-        @include respond-below(md) {
-            display: block;
-            height: 30px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-
     .secondary-links {
         display: flex;
         align-items: center;
@@ -121,6 +132,13 @@
             border-radius: 1000px;
             color: $white;
             font-weight: 400;
+            box-shadow: $small-shadow;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $grey;
+            }
 
             @include respond-below(lg) {
                 display: none;
@@ -138,6 +156,12 @@
             a {
                 color: $primary;
                 padding: 0 10px;
+                text-decoration: none;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: $secondary;
+                }
 
                 &:first-of-type {
                     border-right: 1px solid $primary;
@@ -145,6 +169,10 @@
 
                 &:last-of-type {
                     padding-right: 0;
+                }
+
+                @include respond-below(sm) {
+                    font-size: 13px;
                 }
             }
         }
