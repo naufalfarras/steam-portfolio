@@ -1,3 +1,10 @@
+.see-more {
+    text-decoration: none;
+    &:hover {
+        color: $white;
+    }
+}
+
 .swiper-container {
     max-width: 592px;
     width: 100%;
@@ -118,6 +125,7 @@
             .new {
                 padding: 4px 10px;
                 font-family: 'Titillium Web';
+                box-shadow: $small-shadow;
 
                 @include respond-below(sm) {
                     padding: 3px 7px;
@@ -137,10 +145,6 @@
                 border-bottom-left-radius: 5px;
                 background: $blue;
                 color: $grey;
-
-                // .icon {
-                //     bottom: 1px;
-                // }
             }
 
             .negative {
@@ -154,6 +158,7 @@
             .positive,
             .negative {
                 padding: 4px 7px;
+                box-shadow: $small-shadow;
 
                 @include respond-below(sm) {
                     padding: 3px 7px;

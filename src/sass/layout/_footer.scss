@@ -136,6 +136,12 @@ footer {
                 font-size: 14px;
                 font-family: 'Niramit';
                 font-weight: medium;
+                box-shadow: $small-shadow;
+                transition: color 0.2s ease;
+                text-decoration: none;
+                &:hover {
+                    color: $grey;
+                }
 
                 .download-icon {
                     margin-right: 6px;
