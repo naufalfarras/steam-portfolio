@@ -105,7 +105,6 @@
             }
 
             .old {
-                background: #666;
                 border-top-left-radius: 5px;
                 border-bottom-left-radius: 5px;
                 text-decoration: line-through;
@@ -114,11 +113,22 @@
             }
 
             .new {
-                background: #555;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
                 background: $green;
                 color: $white;
+            }
+
+            .current {
+                background: $green;
+                color: $white;
+                border-radius: 5px;
+                padding: 4px 10px;
+                font-family: 'Titillium Web';
+                box-shadow: $small-shadow;
+                @include respond-below(sm) {
+                    padding: 3px 7px;
+                }
             }
 
             .old,
